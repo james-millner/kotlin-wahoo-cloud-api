@@ -16,9 +16,9 @@ data class AuthorizationResponse(val code: String, val state: String)
 private val logger = KotlinLogging.logger {}
 
 fun main() {
-    val wahooClientId = "***REMOVED***"
-    val wahooClientSecret = "***REMOVED***"
-    val redirectUri = "https://localhost:8000"
+    val wahooClientId = System.getenv("WAHOO_CLIENT_ID") ?: error("WAHOO_CLIENT_ID environment variable not set")
+    val wahooClientSecret = System.getenv("WAHOO_CLIENT_SECRET") ?: error("WAHOO_CLIENT_SECRET environment variable not set")
+    val redirectUri = System.getenv("REDIRECT_URI") ?: error("REDIRECT_URI environment variable not set")
 
     val client = ApacheClient()
     val stateMap = mutableMapOf<String, String>()
@@ -43,7 +43,7 @@ fun main() {
     val filteredApp = DebuggingFilters.PrintRequestAndResponse().then(app)
     val securedApp = ServerFilters.CatchLensFailure.then(filteredApp)
 
-    val server = securedApp.asServer(SunHttp(8000)).start()
+    val server = securedApp.asServer(SunHttp(8080)).start()
 
     println("Authorization Server started on port 8000")
 

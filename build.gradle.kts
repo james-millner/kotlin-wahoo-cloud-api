@@ -3,6 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.9.0"
 
+    // For my fat JAR needs
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+
     application
 }
 
@@ -25,13 +28,16 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(19))
+    }
+}
+
 tasks.test {
     useJUnitPlatform()
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
 
 application {
     mainClass.set("MainKt")
