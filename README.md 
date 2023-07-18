@@ -1,0 +1,5 @@
+565  ./gradlew clean build
+  566  docker buildx build --platform linux/amd64 -t registry.digitalocean.com/james-millner/kotlin-wahoo-cloud-api .
+  567  docker push registry.digitalocean.com/james-millner/kotlin-wahoo-cloud-api
+
+Bare readme

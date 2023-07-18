@@ -55,7 +55,7 @@ fun main() {
             // handle webhook payload here
             logger.info { "Received Webhook Invocation" }
             logger.info { req.bodyString() }
-            Response(Status.OK)
+            Response(Status.OK).body(req.bodyString())
         }
     )
 
