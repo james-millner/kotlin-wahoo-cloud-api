@@ -10,7 +10,6 @@ import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import java.util.concurrent.Semaphore
 
-// Place definition above class declaration to make field static
 private val logger = KotlinLogging.logger {}
 
 fun main() {
@@ -50,6 +49,13 @@ fun main() {
                 logger.error { response.bodyString() }
                 Response(Status.INTERNAL_SERVER_ERROR).body("Authorization code not received")
             }
+        },
+
+        "/webhook" bind Method.POST to { req ->
+            // handle webhook payload here
+            logger.info { "Received Webhook Invocation" }
+            logger.info { req.bodyString() }
+            Response(Status.OK)
         }
     )
 
