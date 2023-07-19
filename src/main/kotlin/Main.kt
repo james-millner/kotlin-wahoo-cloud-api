@@ -20,8 +20,7 @@ fun main() {
     val client = ApacheClient()
 
     val app: HttpHandler = routes(
-        "/authorize" bind Method.GET to { request: Request ->
-            val state = request.query("state")
+        "/authorize" bind Method.GET to { _: Request ->
             val authorizationUrl = "https://api.wahooligan.com/oauth/authorize?" +
                     "client_id=$wahooClientId" +
                     "&redirect_uri=$redirectUri" +
@@ -40,8 +39,9 @@ fun main() {
                     "&code=$code" +
                     "&grant_type=authorization_code" +
                     "&redirect_uri=$redirectUri")
-            val request = Request(Method.POST, url)
-            val response = client(request)
+            val response = client(
+                Request(Method.POST, url)
+            )
 
             if (response.status == Status.OK) {
                 Response(Status.OK).body("Authorization code received: ${response.bodyString()}")
