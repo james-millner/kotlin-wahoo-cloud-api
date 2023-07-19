@@ -104,7 +104,3 @@ For more information on deploying with fly.io, refer to their [official document
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please submit an issue or a pull request to the repository.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
