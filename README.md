@@ -31,9 +31,9 @@ To install and run the project locally, follow these steps:
 
 3. Set up the required environment variables. You can do this by creating a `.env` file in the root directory of the project and populating it with the necessary values. The required environment variables are:
 
-   - `CLIENT_ID`: The Wahoo Cloud API client ID.
-   - `CLIENT_SECRET`: The Wahoo Cloud API client secret.
-   - `REDIRECT_URI`: The redirect URI for the OAuth flow.
+    - `CLIENT_ID`: The Wahoo Cloud API client ID.
+    - `CLIENT_SECRET`: The Wahoo Cloud API client secret.
+    - `REDIRECT_URI`: The redirect URI for the OAuth flow.
 
 4. Build and run the project:
 
