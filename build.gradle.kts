@@ -24,6 +24,7 @@ dependencies {
     implementation("org.http4k:http4k-format-jackson")
 
     implementation("io.github.microutils:kotlin-logging:3.0.5")
+    implementation("ch.qos.logback:logback-classic:1.2.6")
 
     testImplementation(kotlin("test"))
 }

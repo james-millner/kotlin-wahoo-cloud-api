@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for kwahooligan-capi on 2023-07-19T22:19:40+01:00
+# fly.toml app configuration file generated for kwahooligan-capi on 2023-10-19T22:29:36+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -6,10 +6,16 @@
 app = "kwahooligan-capi"
 primary_region = "lhr"
 
+[build]
+
 [env]
-  REDIRECT_URI = "SERVICE_REDIRECT"
-  WAHOO_CLIENT_ID = "SUPER_SECRET_CLIENT_ID"
-  WAHOO_CLIENT_SECRET = "SUPER_SECRET_CLIENT_SECRET"
+  APP_ENV = "production"
+  LOG_CHANNEL = "stdout"
+  LOG_LEVEL = "info"
+  LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
+  REDIRECT_URI = "SECRET"
+  WAHOO_CLIENT_ID = "SECRET"
+  WAHOO_CLIENT_SECRET = "SECRET"
 
 [http_service]
   internal_port = 8080
